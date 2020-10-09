@@ -629,5 +629,32 @@ jQuery(document).ready(function ($) {
 		$('.form-wrap__tabs').not('.active').addClass('active').siblings().removeClass('active');
 	})
 
-	$(".btn-modal-close").click(()=>{$.magnificPopup.close()});
+	$(".btn-modal-close").click(() => { $.magnificPopup.close() });
+	
+	// анимация кнопок
+	$(".btn-js").each(function () {
+		var B = $(this);
+		var A, C, z, D;
+		setInterval(function () {
+			if (B.find(".animate-js").length === 0) {
+				B.prepend("<span class='animate-js'></span>");
+			}
+			A = B.find(".animate-js");
+			A.removeClass("btn_animate");
+			if (!A.height() && !A.width()) {
+				C = Math.max(B.outerWidth(), B.outerHeight());
+				A.css({
+					height: C,
+					width: C
+				});
+			}
+			z = Math.round(Math.random() * A.width() - A.width() / 2);
+			D = Math.round(Math.random() * A.height() - A.height() / 2);
+			A.css({
+				top: D + "px",
+				left: z + "px"
+			}).addClass("btn_animate");
+		}, 3000);
+	});
+
 });
