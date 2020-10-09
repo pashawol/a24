@@ -465,6 +465,11 @@ jQuery(document).ready(function ($) {
 	$(".data-modal").click(function () {
 		var mod = $(this).attr("href");
 		$(mod).find(".form-wrap__title").text($(this).data("title"));
+		var text = $(this).data("text")
+		if (text) {
+			$(mod).find(".h6.mb-4").text(text);
+
+		}
 	})
 
 
@@ -656,5 +661,30 @@ jQuery(document).ready(function ($) {
 			}).addClass("btn_animate");
 		}, 3000);
 	});
+	
+	
+ 
+	
+	function whenResize() {
+		const topH = $('#sDoneCabinet').offset().top; 
+		if ($(window).scrollTop() > topH) {
+			$(" .btn-footer--js").addClass('show');
+		} else {
+			$(" .btn-footer--js").removeClass('show');
+		}
+		
+	}
+	window.addEventListener('scroll', () => {
+		whenResize();
 
+
+	}, { passive: true });
+ 
+	window.addEventListener('resize scroll', () => {
+		whenResize();
+
+	}, { passive: true });
+ 
+	whenResize();
+ 
 });
