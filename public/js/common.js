@@ -664,32 +664,34 @@ jQuery(document).ready(function ($) {
 
 
 
+	if ($('div').is("#sDoneCabinet")) {
 
-	function whenResize() {
-		let cabinet = document.querySelector('#sDoneCabinet');
-		if (cabinet) {
+		function whenResize() {
+			let cabinet = document.querySelector('#sDoneCabinet');
+			if (cabinet) {
 
-			const topH = $('#sDoneCabinet').offset().top;
-			if ($(window).scrollTop() > topH) {
-				$(" .btn-footer--js").addClass('show');
-			} else {
-				$(" .btn-footer--js").removeClass('show');
+				const topH = $('#sDoneCabinet').offset().top;
+				if ($(window).scrollTop() > topH) {
+					$(" .btn-footer--js").addClass('show');
+				} else {
+					$(" .btn-footer--js").removeClass('show');
+				}
 			}
+
 		}
+		window.addEventListener('scroll', () => {
+			whenResize();
 
+
+		}, { passive: true });
+
+		window.addEventListener('resize scroll', () => {
+			whenResize();
+
+		}, { passive: true });
+
+		whenResize();
 	}
-	window.addEventListener('scroll', () => {
-		whenResize();
-
-
-	}, { passive: true });
-
-	window.addEventListener('resize scroll', () => {
-		whenResize();
-
-	}, { passive: true });
-
-	whenResize();
 
 
 	window.onload = function () {
