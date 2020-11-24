@@ -585,7 +585,7 @@ jQuery(document).ready(function ($) {
 			.siblings('.tab-block').removeClass('active').slideUp();
 
 	})
- 
+
 
 
 
@@ -635,7 +635,7 @@ jQuery(document).ready(function ($) {
 	})
 
 	$(".btn-modal-close").click(() => { $.magnificPopup.close() });
-	
+
 	// анимация кнопок
 	$(".btn-js").each(function () {
 		var B = $(this);
@@ -661,30 +661,43 @@ jQuery(document).ready(function ($) {
 			}).addClass("btn_animate");
 		}, 3000);
 	});
-	
-	
- 
-	
+
+
+
+
 	function whenResize() {
-		const topH = $('#sDoneCabinet').offset().top; 
-		if ($(window).scrollTop() > topH) {
-			$(" .btn-footer--js").addClass('show');
-		} else {
-			$(" .btn-footer--js").removeClass('show');
+		let cabinet = document.querySelector('#sDoneCabinet');
+		if (cabinet) {
+
+			const topH = $('#sDoneCabinet').offset().top;
+			if ($(window).scrollTop() > topH) {
+				$(" .btn-footer--js").addClass('show');
+			} else {
+				$(" .btn-footer--js").removeClass('show');
+			}
 		}
-		
+
 	}
 	window.addEventListener('scroll', () => {
 		whenResize();
 
 
 	}, { passive: true });
- 
+
 	window.addEventListener('resize scroll', () => {
 		whenResize();
 
 	}, { passive: true });
- 
+
 	whenResize();
- 
+
+
+	window.onload = function () {
+		document.body.classList.add('loaded_hiding');
+		window.setTimeout(function () {
+			document.body.classList.add('loaded');
+			document.body.classList.remove('loaded_hiding');
+		}, 200);
+	}
+
 });

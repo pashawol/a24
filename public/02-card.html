@@ -6,14 +6,19 @@
 		<meta name="description" content="о чем страница"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width"/>
-		<link rel="shortcut icon" href="img/favicon/favicon.ico"/>
+		<link href="img/favicon/favicon.ico" rel="shortcut icon"/>
 		<!-- Custom Browsers Color-->
 		<meta name="theme-color" content="#f6ee25"/>
-		<link rel="stylesheet" href="libs/@fancyapps/fancybox/jquery.fancybox.min.css"/>
-		<link rel="stylesheet" href="css/main.min.css"/>
-		<link rel="stylesheet" href="css/bunner.min.css"/>
+		<link type="font/woff2" href="fonts/latoRegular/latoRegular.woff2" rel="preload" as="font" crossorigin="anonymous"/>
+		<link type="font/woff2" href="fonts/latoBold/latoBold.woff2" rel="preload" as="font" crossorigin="anonymous"/>
+		<link type="font/woff2" href="fonts/latoLight/latoLight.woff2" rel="preload" as="font" crossorigin="anonymous"/>
+		<link type="font/woff2" href="fonts/Lato-Black/Lato-Black.woff2" rel="preload" as="font" crossorigin="anonymous"/>
 	</head>
-	<body>
+	<style>
+		.loaded_hiding {  opacity: 0; pointer-events: none;  } .loaded_hiding::before { display: none; }
+		
+	</style>
+	<body class="loaded_hiding">
 		<div class="main-wrapper">
 			<div class="trop main-mnu hidden-mnu">
 				<div class="wrapp-hidden">
@@ -2378,7 +2383,7 @@
 						</div>
 					</div>
 				</form>
-			</div><a class="link text-body popup-with-move-anim" href="#modal-pay-test"> Быстрая оплата</a>
+			</div>
 			<!-- end #modal-pay-->
 			<div class="form-wrap zoom-anim-dialog mfp-hide modal-win modal-win-double modal-form" id="modal-pay-test">
 				<form action="#">
@@ -3384,7 +3389,7 @@
 			</div>
 			<!--  конец модалки со стр  отзывов-->
 			<!-- modal-->
-			<!-- это универсальная модалкаа--><a class="link text-body popup-with-move-anim" href="#modal-password">Восстановить пароль</a>
+			<!-- это универсальная модалкаа-->
 			<div class="form-wrap zoom-anim-dialog mfp-hide modal-win modal-form" id="modal-password">
 				<form action="#">
 					<div class="text-center">
@@ -3406,7 +3411,7 @@
 				</form>
 			</div>
 			<!-- end #modal-call-->
-			<!-- модалки колцентра--><a class="link btn btn-primary popup-with-move-anim" href="#modal-reg-call-1"> Регистрация звонка 1</a>
+			<!-- модалки колцентра-->
 			<div class="form-wrap zoom-anim-dialog mfp-hide modal-win modal-filter modal-form" id="modal-reg-call-1">
 				<form action="#">
 					<div class="text-center">
@@ -3419,7 +3424,7 @@
 					</div>
 				</form>
 			</div>
-			<!-- #modal-reg-call-1--><a class="link btn btn-primary popup-with-move-anim" href="#modal-reg-call-2"> Регистрация звонка 2</a>
+			<!-- #modal-reg-call-1-->
 			<div class="form-wrap zoom-anim-dialog mfp-hide modal-win modal-filter modal-form" id="modal-reg-call-2">
 				<form action="#">
 					<div class="text-center">
@@ -3735,7 +3740,7 @@
 					</div>
 				</form>
 			</div>
-			<!-- #modal-reg-call-2--><a class="link btn btn-primary popup-with-move-anim" href="#modal-thank-call"> Спасибо!</a>
+			<!-- #modal-reg-call-2-->
 			<div class="zoom-anim-dialog mfp-hide modal-win modal-form form-wrap text-center" id="modal-thank-call">
 				<div class="title mono ttu h45 mb-3">Спасибо!<br/>заявка зарегистрирована.
 				</div>
@@ -4072,7 +4077,7 @@
 				<div class="h36 mono mb-5 mono">Спасибо. Ждите звонка<br/>нашего менеджера.</div>
 				<button class="btn btn-primary btn-modal-close" type="button">Закрыть</button>
 			</div>
-			<!-- end #modal-thanks-fr--><a class="link btn btn-primary popup-with-move-anim" href="#modal-thanks-fr">Спасибо. Новое</a>
+			<!-- end #modal-thanks-fr-->
 			<div class="zoom-anim-dialog mfp-hide modal-win modal-win--fr modal-win--book modal-form " id="modal-book"> 
 				<div class="text-center"> 
 					<div class="h6 strong"> 5-дневное обучение</div>
@@ -4123,9 +4128,61 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
 			</div>
 			<!-- end #modal-program-->
+			<!-- ====================================================-->
+			<div class="form-wrap zoom-anim-dialog mfp-hide modal-win modal-win modal-win--new modal-form" id="modal-with-input-tel">
+				<form action="#">
+					<div class="text-center">
+						<div class="form-wrap__title">Заказать звонок
+						</div>
+						<div class="h6 mb-4"> Заполните форму, и&nbsp;наш менеджер свяжется с&nbsp;Вами в&nbsp;ближайшее время </div>
+						<div class="form-wrap__input-wrap form-group"> <input class="form-wrap__input form-control text-center form-control form-control--new" type="tel" placeholder="Введите телефон"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="form-wrap__btn-wrap">
+							<button class="form-wrap__btn btn btn-primary btn-primary-new btn-js btn-md btn-block">Отправить
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- end #modal-with-input-tel-->
+			<div class="form-wrap zoom-anim-dialog mfp-hide modal-win modal-win modal-win--new modal-form" id="modal-login">
+				<form action="#">
+					<div class="text-center">
+						<div class="form-wrap__title">Заказать звонок
+						</div>
+						<div class="h6 mb-4"> Заполните форму, и&nbsp;наш менеджер свяжется с&nbsp;Вами в&nbsp;ближайшее время </div>
+						<div class="form-wrap__input-wrap form-group"> <input class="form-wrap__input form-control text-center form-control form-control--new" type="text" placeholder="Пароль из SMS"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="form-wrap__btn-wrap">
+							<button class="form-wrap__btn btn btn-primary btn-primary-new btn-js btn-md btn-block">Отправить
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- end #modal-login-->
 		</div>
+		<link href="libs/magnificPopup/magnific-popup.css" rel="stylesheet"/>
+		<link href="libs/gijgo-master/dist/combined/css/gijgo.css" rel="stylesheet"/>
+		<link href="libs/gijgo-master/dist/combined/css/demo.min.css" rel="stylesheet"/>
+		<link href="libs/swiper-4.2.0/dist/css/swiper.css" rel="stylesheet"/>
+		<link href="libs/ion.rangeSlider-2.2.0/css/ion.rangeSlider.css" rel="stylesheet"/>
+		<link href="libs/ion.rangeSlider-2.2.0/css/ion.rangeSlider.skinHTML5.css" rel="stylesheet"/>
+		<link href="css/main.min.css" rel="stylesheet"/>
+		<link href="css/bunner.min.css" rel="stylesheet"/>
 		<script src="js/jquery.min.js"></script>
-		<script src="js/scripts.min.js"></script>
+		<script src="libs/popper.js/dist/umd/popper.min.js"></script>
+		<script src="libs/tooltip.js/index.js"></script>
+		<script src="libs/bootstrap/popover.js"></script>
+		<script src="libs/swiper-4.2.0/dist/js/swiper.js"></script>
+		<script src="libs/svg4everybody-master/dist/svg4everybody.js"></script>
+		<script src="libs/magnificPopup/jquery.magnific-popup.min.js"></script>
+		<script src="libs/jquery.inputmask.bundle.min.js"></script>
+		<script src="libs/ion.rangeSlider-2.2.0/js/ion-rangeSlider/ion.rangeSlider.js"></script>
+		<script src="libs/gijgo-master/dist/combined/js/gijgo.js"></script>
+		<script src="libs/gijgo-master/dist/combined/js/messages/messages.ru-ru.js"></script>
 		<script src="libs/@fancyapps/fancybox/jquery.fancybox.min.js"></script>
 		<script src="js/common.js"></script>
 	</body>

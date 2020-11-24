@@ -6,14 +6,19 @@
 		<meta name="description" content="о чем страница"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width"/>
-		<link rel="shortcut icon" href="img/favicon/favicon.ico"/>
+		<link href="img/favicon/favicon.ico" rel="shortcut icon"/>
 		<!-- Custom Browsers Color-->
 		<meta name="theme-color" content="#f6ee25"/>
-		<link rel="stylesheet" href="libs/@fancyapps/fancybox/jquery.fancybox.min.css"/>
-		<link rel="stylesheet" href="css/main.min.css"/>
-		<link rel="stylesheet" href="css/bunner.min.css"/>
+		<link type="font/woff2" href="fonts/latoRegular/latoRegular.woff2" rel="preload" as="font" crossorigin="anonymous"/>
+		<link type="font/woff2" href="fonts/latoBold/latoBold.woff2" rel="preload" as="font" crossorigin="anonymous"/>
+		<link type="font/woff2" href="fonts/latoLight/latoLight.woff2" rel="preload" as="font" crossorigin="anonymous"/>
+		<link type="font/woff2" href="fonts/Lato-Black/Lato-Black.woff2" rel="preload" as="font" crossorigin="anonymous"/>
 	</head>
-	<body>
+	<style>
+		.loaded_hiding {  opacity: 0; pointer-events: none;  } .loaded_hiding::before { display: none; }
+		
+	</style>
+	<body class="loaded_hiding">
 		<div class="main-wrapper">
 			<!-- start HEADER.header-->
 			<header class="header" id="header">
@@ -3676,8 +3681,25 @@
 			</div>
 			<!-- end #modal-login-->
 		</div>
+		<link href="libs/magnificPopup/magnific-popup.css" rel="stylesheet"/>
+		<link href="libs/gijgo-master/dist/combined/css/gijgo.css" rel="stylesheet"/>
+		<link href="libs/gijgo-master/dist/combined/css/demo.min.css" rel="stylesheet"/>
+		<link href="libs/swiper-4.2.0/dist/css/swiper.css" rel="stylesheet"/>
+		<link href="libs/ion.rangeSlider-2.2.0/css/ion.rangeSlider.css" rel="stylesheet"/>
+		<link href="libs/ion.rangeSlider-2.2.0/css/ion.rangeSlider.skinHTML5.css" rel="stylesheet"/>
+		<link href="css/main.min.css" rel="stylesheet"/>
+		<link href="css/bunner.min.css" rel="stylesheet"/>
 		<script src="js/jquery.min.js"></script>
-		<script src="js/scripts.min.js"></script>
+		<script src="libs/popper.js/dist/umd/popper.min.js"></script>
+		<script src="libs/tooltip.js/index.js"></script>
+		<script src="libs/bootstrap/popover.js"></script>
+		<script src="libs/swiper-4.2.0/dist/js/swiper.js"></script>
+		<script src="libs/svg4everybody-master/dist/svg4everybody.js"></script>
+		<script src="libs/magnificPopup/jquery.magnific-popup.min.js"></script>
+		<script src="libs/jquery.inputmask.bundle.min.js"></script>
+		<script src="libs/ion.rangeSlider-2.2.0/js/ion-rangeSlider/ion.rangeSlider.js"></script>
+		<script src="libs/gijgo-master/dist/combined/js/gijgo.js"></script>
+		<script src="libs/gijgo-master/dist/combined/js/messages/messages.ru-ru.js"></script>
 		<script src="libs/@fancyapps/fancybox/jquery.fancybox.min.js"></script>
 		<script src="js/common.js"></script>
 	</body>
