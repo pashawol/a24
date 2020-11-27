@@ -1,5 +1,6 @@
+const $ = jQuery;
 
-jQuery(document).ready(function ($) {
+function eventHandler() {
 
 	// для свг
 	svg4everybody({});
@@ -91,15 +92,8 @@ jQuery(document).ready(function ($) {
 				$(this).hide();
 			}
 		})
-
 		if (w > 992) {
 			$(".s-po-body__section tr").removeAttr("style");
-			// swiperCard.init();
-			// swiperCard.destroy();
-			//  $(".toggle-mnu-1").removeClass("on");
-			//   // $("body").removeClass("fixed");
-			//   $(".hidden-mnu").removeClass("active");
-			//   $("html, body").removeClass("fixed");
 		}
 
 
@@ -131,9 +125,10 @@ jQuery(document).ready(function ($) {
 		// конец добавил
 	}
 
-	$(window).resize(function () {
+	window.addEventListener('resize', () => {
 		heightses();
-	});
+	}, { passive: true });
+
 
 	heightses();
 
@@ -186,32 +181,37 @@ jQuery(document).ready(function ($) {
 
 
 	// маска на инпут
-	$("input[type='tel']").attr("pattern", "[+]7[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}").inputmask({
-		"mask": "+7(999)999-99-99"
+	let InputTel = [].slice.call(document.querySelectorAll('input[type="tel"]'));
+	InputTel.forEach(function (element) {
+		element.setAttribute("pattern", "[+][0-9]{1}[(][0-9]{3}[)][0-9]{3}-[0-9]{2}-[0-9]{2}")
 	});
+	Inputmask("+7(999)999-99-99").mask(InputTel);
 
 
-	$(".input-range").each(function () {
-		let minV = $(this).data("min"),
-			maxV = $(this).data("max");
+	$(document).on('click', '[data-tab-block="all-filters"]', function () {
 
-		$(this).ionRangeSlider({
-			type: "double",
-			min: minV,
-			max: maxV,
-		});
+		$(".input-range").each(function () {
+			let minV = $(this).data("min"),
+				maxV = $(this).data("max");
 
-	})
-	$(".input-range-single").each(function () {
-		let minV = $(this).data("min"),
-			maxV = $(this).data("max");
+			$(this).ionRangeSlider({
+				type: "double",
+				min: minV,
+				max: maxV,
+			});
 
-		$(this).ionRangeSlider({
-			type: "single",
-			min: minV,
-			max: maxV,
-		});
+		})
+		$(".input-range-single").each(function () {
+			let minV = $(this).data("min"),
+				maxV = $(this).data("max");
 
+			$(this).ionRangeSlider({
+				type: "single",
+				min: minV,
+				max: maxV,
+			});
+
+		})
 	})
 
 	$(".s-calc__range-js").each(function () {
@@ -233,9 +233,13 @@ jQuery(document).ready(function ($) {
 
 
 	//  маске в модалке регистрации звонка
-	$(".form-wrap__tel-block input[type='tel']").attr("pattern", "[0-9]{2}-[0-9]{2}").inputmask({
-		"mask": "99-99"
+
+
+	let InputTel2 = [].slice.call(document.querySelectorAll(".form-wrap__tel-block input[type='tel']"));
+	InputTel2.forEach(function (element) {
+		element.setAttribute("pattern", "[0-9]{2}-[0-9]{2}")
 	});
+	Inputmask("99-99").mask(InputTel2);
 
 	$(".form-wrap__select--reg-call")
 		.change(function () {
@@ -296,16 +300,19 @@ jQuery(document).ready(function ($) {
 		// конец добавил
 	}
 
-	$(window).resize(function () {
+	window.addEventListener('resize', () => {
 		heightses2();
-	});
+	}, { passive: true });
 
 	heightses2();
 
-
-
 	// маска на инпут
-	$(".input-time").attr("pattern", "([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?").inputmask("99:99");;
+
+	let InputTime = [].slice.call(document.querySelectorAll(".input-time"));
+	InputTime.forEach(function (element) {
+		element.setAttribute("pattern", "([01]?[0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9])?")
+	});
+	Inputmask("99-99").mask(InputTime);
 
 	// кастомный инпут файл
 
@@ -356,12 +363,18 @@ jQuery(document).ready(function ($) {
 
 
 
-	window.onload = function () {
-		document.body.classList.add('loaded_hiding');
-		window.setTimeout(function () {
-			document.body.classList.add('loaded');
-			document.body.classList.remove('loaded_hiding');
-		}, 50);
-	}
 
-});
+};
+if (document.readyState !== 'loading') {
+	eventHandler();
+} else {
+	document.addEventListener('DOMContentLoaded', eventHandler);
+}
+
+window.onload = function () {
+	document.body.classList.add('loaded_hiding');
+	window.setTimeout(function () {
+		document.body.classList.add('loaded');
+		document.body.classList.remove('loaded_hiding');
+	}, 50);
+}
